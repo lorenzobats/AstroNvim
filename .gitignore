@@ -6,7 +6,6 @@ colors
 docs
 ftplugin
 ginit.vim
-lua/user
 neoconf.json
 plugin
 queries
@@ -15,7 +14,7 @@ spell
 # Global gitignore
 # ----------------
 
-# Mac OS X
+#Mac OS X
 .AppleDouble
 .DS_Store
 .LSOverride
