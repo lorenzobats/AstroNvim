@@ -5,7 +5,6 @@ coc-settings.json
 colors
 docs
 ftplugin
-lua/user
 ginit.vim
 neoconf.json
 plugin
