@@ -5,17 +5,18 @@ return {
     opts = function(_, opts)
       -- customize the dashboard header
       opts.section.header.val = {
-        " █████  ███████ ████████ ██████   ██████",
-        "██   ██ ██         ██    ██   ██ ██    ██",
-        "███████ ███████    ██    ██████  ██    ██",
-        "██   ██      ██    ██    ██   ██ ██    ██",
-        "██   ██ ███████    ██    ██   ██  ██████",
-        " ",
-        "    ███    ██ ██    ██ ██ ███    ███",
-        "    ████   ██ ██    ██ ██ ████  ████",
-        "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "    ██   ████   ████   ██ ██      ██",
+".____                                                 ",
+"|    |    ___________   ____   ____ ____________  ______",
+"|    |   /  _ \\_  __ \\_/ __ \\ /    \\\\___   /  _ \\/  ___/",
+"|    |__(  <_> )  | \\/\\  ___/|   |  \\/    (  <_> )___ \\ ",
+"|_______ \\____/|__|    \\___  >___|  /_____ \\____/____  >",
+"        \\/                 \\/     \\/      \\/         \\/ ",
+"           ___________   ____.___   _____                         ",
+"           \\      \\   \\ /   /|   | /     \\                        ",
+ "           /   |   \\   Y   / |   |/  \\ /  \\                       ",
+ "          /    |    \\     /  |   /    Y    \\                      ",
+ "          \\____|__  /\\___/   |___\\____|__  /                      ",
+ "                  \\/                     \\/  ",
       }
       return opts
     end,
@@ -33,14 +34,14 @@ return {
       vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
       vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
       
-      vim.keymap.set("n", "<S-h>", function() harpoon:list():select(1) end)
-      vim.keymap.set("n", "<S-j>", function() harpoon:list():select(2) end)
-      vim.keymap.set("n", "<S-k>", function() harpoon:list():select(3) end)
-      vim.keymap.set("n", "<S-l>", function() harpoon:list():select(4) end)
+      vim.keymap.set("n", "<S-1>", function() harpoon:list():select(1) end)
+      vim.keymap.set("n", "<S-2>", function() harpoon:list():select(2) end)
+      vim.keymap.set("n", "<S-3>", function() harpoon:list():select(3) end)
+      vim.keymap.set("n", "<S-4>", function() harpoon:list():select(4) end)
 
       -- Toggle previous & next buffers stored within Harpoon list
-      vim.keymap.set("n", "<S-h>", function() harpoon:list():prev() end)
-      vim.keymap.set("n", "<S-l>", function() harpoon:list():next() end)
+      vim.keymap.set("n", "<C-Tab>", function() harpoon:list():prev() end)
+      vim.keymap.set("n", "<C-S-Tab>", function() harpoon:list():next() end)
     end,
   }
   -- You can disable default plugins as follows:
