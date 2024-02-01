@@ -2,7 +2,7 @@ return {
   "rebelot/heirline.nvim",
   event = "BufEnter",
   opts = function()
-    local status = require "astronvim.utils.status"
+    local status = require "astronvim.utils.status" 
     return {
       opts = {
         disable_winbar_cb = function(args)
@@ -17,7 +17,7 @@ return {
         hl = { fg = "fg", bg = "bg" },
         status.component.mode(),
         status.component.git_branch(),
-        status.component.file_info { filetype = {}, filename = false, file_modified = false },
+        status.component.file_info(), 
         status.component.git_diff(),
         status.component.diagnostics(),
         status.component.fill(),
@@ -28,6 +28,7 @@ return {
         status.component.nav(),
         status.component.mode { surround = { separator = "right" } },
       },
+    
       winbar = { -- winbar
         init = function(self) self.bufnr = vim.api.nvim_get_current_buf() end,
         fallthrough = false,
@@ -65,6 +66,7 @@ return {
           provider = function(self) return string.rep(" ", vim.api.nvim_win_get_width(self.winid) + 1) end,
           hl = { bg = "tabline_bg" },
         },
+
         status.heirline.make_buflist(status.component.tabline_file_info()), -- component for each buffer tab
         status.component.fill { hl = { bg = "tabline_bg" } }, -- fill the rest of the tabline with background color
         { -- tab list
