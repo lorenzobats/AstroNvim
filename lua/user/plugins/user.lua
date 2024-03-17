@@ -1,6 +1,12 @@
 return {
     {
-      "rebelot/kanagawa.nvim",
+        "rebelot/kanagawa.nvim",
+    },
+    {
+        "windwp/nvim-ts-autotag",
+        config = function()
+            require("nvim-ts-autotag").setup({})
+        end
     }
 }
 

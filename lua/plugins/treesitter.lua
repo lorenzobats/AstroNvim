@@ -4,7 +4,7 @@ return {
     { "JoosepAlviste/nvim-ts-context-commentstring", commit = "6c30f3c8915d7b31c3decdfe6c7672432da1809d" },
     "nvim-treesitter/nvim-treesitter-textobjects",
     -- HACK: remove when https://github.com/windwp/nvim-ts-autotag/issues/125 closed.
-    { "windwp/nvim-ts-autotag", opts = { enable_close_on_slash = false } },
+    --  { "windwp/nvim-ts-autotag", opts = { enable_close_on_slash = false } },
   },
   event = "User AstroFile",
   cmd = {
@@ -35,7 +35,10 @@ return {
   end,
   opts = function()
     return {
-      autotag = { enable = true },
+      autotag = { 
+        enable = true,
+        filetypes = { "html", "xml", "heex", "elixir" }
+      },
       context_commentstring = { enable = true, enable_autocmd = false },
       -- HACK: force install of shipped neovim parsers since TSUpdate doesn't correctly update them
       ensure_installed = {
