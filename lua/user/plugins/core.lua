@@ -29,7 +29,7 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       local harpoon = require("harpoon")
-      harpoon:setup()
+        harpoon:setup()
      
       vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
       vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
@@ -52,7 +52,7 @@ return {
   --   "L3MON4D3/LuaSnip",
   --   config = function(plugin, opts)
   --     require "plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup call
-  --     -- add more custom luasnip configuration such as filetype extend or custom snippets
+  --     -- add more custom luasnip cRunde 1onfiguration such as filetype extend or custom snippets
   --     local luasnip = require "luasnip"
   --     luasnip.filetype_extend("javascript", { "javascriptreact" })
   --   end,

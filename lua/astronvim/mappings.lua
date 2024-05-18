@@ -66,61 +66,40 @@ maps.n["<b"] = {
   desc = "Move buffer tab left",
 }
 
-maps.n["<leader>b"] = sections.b
-maps.n["<leader>bc"] =
-  { function() require("astronvim.utils.buffer").close_all(true) end, desc = "Close all buffers except current" }
-maps.n["<leader>bC"] = { function() require("astronvim.utils.buffer").close_all() end, desc = "Close all buffers" }
-maps.n["<leader>bl"] =
-  { function() require("astronvim.utils.buffer").close_left() end, desc = "Close all buffers to the left" }
-maps.n["<leader>bp"] = { function() require("astronvim.utils.buffer").prev() end, desc = "Previous buffer" }
-maps.n["<leader>br"] =
-  { function() require("astronvim.utils.buffer").close_right() end, desc = "Close all buffers to the right" }
-maps.n["<leader>bs"] = sections.bs
-maps.n["<leader>bse"] = { function() require("astronvim.utils.buffer").sort "extension" end, desc = "By extension" }
-maps.n["<leader>bsr"] =
-  { function() require("astronvim.utils.buffer").sort "unique_path" end, desc = "By relative path" }
-maps.n["<leader>bsp"] = { function() require("astronvim.utils.buffer").sort "full_path" end, desc = "By full path" }
-maps.n["<leader>bsi"] = { function() require("astronvim.utils.buffer").sort "bufnr" end, desc = "By buffer number" }
-maps.n["<leader>bsm"] = { function() require("astronvim.utils.buffer").sort "modified" end, desc = "By modification" }
-
-if is_available "heirline.nvim" then
-  maps.n["<leader>bb"] = {
-    function()
-      require("astronvim.utils.status.heirline").buffer_picker(function(bufnr) vim.api.nvim_win_set_buf(0, bufnr) end)
-    end,
-    desc = "Select buffer from tabline",
-  }
-  maps.n["<leader>bd"] = {
-    function()
-      require("astronvim.utils.status.heirline").buffer_picker(
-        function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
-      )
-    end,
-    desc = "Close buffer from tabline",
-  }
-  maps.n["<leader>b\\"] = {
-    function()
-      require("astronvim.utils.status.heirline").buffer_picker(function(bufnr)
-        vim.cmd.split()
-        vim.api.nvim_win_set_buf(0, bufnr)
-      end)
-    end,
-    desc = "Horizontal split buffer from tabline",
-  }
-  maps.n["<leader>b|"] = {
-    function()
-      require("astronvim.utils.status.heirline").buffer_picker(function(bufnr)
-        vim.cmd.vsplit()
-        vim.api.nvim_win_set_buf(0, bufnr)
-      end)
-    end,
-    desc = "Vertical split buffer from tabline",
-  }
-end
-
--- Navigate tabs
-maps.n["]t"] = { function() vim.cmd.tabnext() end, desc = "Next tab" }
-maps.n["[t"] = { function() vim.cmd.tabprevious() end, desc = "Previous tab" }
+-- if is_available "heirline.nvim" then
+-- maps.n["<leader>bb"] = {
+--   function()
+--     require("astronvim.utils.status.heirline").buffer_picker(function(bufnr) vim.api.nvim_win_set_buf(0, bufnr) end)
+--   end,
+--   desc = "Select buffer from tabline",
+-- }
+-- maps.n["<leader>bd"] = {
+--   function()
+--     require("astronvim.utils.status.heirline").buffer_picker(
+--       function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
+--     )
+--   end,
+--   desc = "Close buffer from tabline",
+-- }
+-- maps.n["<leader>b\\"] = {
+--   function()
+--     require("astronvim.utils.status.heirline").buffer_picker(function(bufnr)
+--       vim.cmd.split()
+--       vim.api.nvim_win_set_buf(0, bufnr)
+--     end)
+--   end,
+--   desc = "Horizontal split buffer from tabline",
+-- }
+-- maps.n["<leader>b|"] = {
+--   function()
+--     require("astronvim.utils.status.heirline").buffer_picker(function(bufnr)
+--       vim.cmd.vsplit()
+--       vim.api.nvim_win_set_buf(0, bufnr)
+--     end)
+--   end,
+--   desc = "Vertical split buffer from tabline",
+-- }
+-- end
 
 -- Alpha
 if is_available "alpha-nvim" then
@@ -162,21 +141,6 @@ if is_available "gitsigns.nvim" then
   maps.n["<leader>gS"] = { function() require("gitsigns").stage_buffer() end, desc = "Stage Git buffer" }
   maps.n["<leader>gu"] = { function() require("gitsigns").undo_stage_hunk() end, desc = "Unstage Git hunk" }
   maps.n["<leader>gd"] = { function() require("gitsigns").diffthis() end, desc = "View Git diff" }
-end
-
--- NeoTree
-if is_available "neo-tree.nvim" then
-  maps.n["<leader>e"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" }
-  maps.n["<leader>o"] = {
-    function()
-      if vim.bo.filetype == "neo-tree" then
-        vim.cmd.wincmd "p"
-      else
-        vim.cmd.Neotree "focus"
-      end
-    end,
-    desc = "Toggle Explorer Focus",
-  }
 end
 
 -- Session Manager
