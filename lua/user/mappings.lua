@@ -40,6 +40,7 @@ return {
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
+    ["<Esc><Esc>"] = { [[<C-\><C-n>]] },
   },
   v = {
     ["J"] = { ":m '>+1<CR>gv=gv", desc = "Move selection down" },
